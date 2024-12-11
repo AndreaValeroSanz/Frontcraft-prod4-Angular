@@ -1,0 +1,60 @@
+.navbarstyle {
+  background-color: lightgray;
+  height: max-content;
+  width: max(100vw);
+  list-style: none;
+  padding: 0; /* Elimina el padding de la lista */
+  margin: 0; /* Elimina el margen de la lista */
+}
+
+.text {
+  display: flex;
+  justify-content: space-around; /* Distribuye el espacio entre los elementos */
+  align-items: center; /* Centra los elementos verticalmente */
+  width: 100%; /* Ocupa todo el ancho del navbar */
+  color: black;
+}
+
+.text li {
+  font-size: 24px; /* Tamaño de la fuente */
+  font-family: GlacialFont, sans-serif;
+  padding: 1rem; /* Espaciado alrededor del texto */
+  transition: color 0.3s ease; /* Transición suave para el color */
+  margin-right: 45px;
+  margin-left: 45px;
+}
+a {
+  text-decoration: none;                /* Elimina el subrayado predeterminado de los enlaces */
+  color: black;                         /* Color del texto de los enlaces */
+  display: inline-block;                /* Permite aplicar márgenes y pseudo-elementos a los enlaces */
+  position: relative;                   /* Define la posición relativa para poder ubicar el pseudo-elemento ::after */
+  font-family: Bahnschrift, sans-serif; /* Fuente personalizada para el texto */
+  margin-left: 45px;                    /* Espacio a la izquierda del enlace */
+  margin-right: 45px;                   /* Espacio a la derecha del enlace */
+  align-content: center;                /* Alineación central del contenido */
+}
+
+/* Línea animada debajo del enlace */
+a::after {
+  content: '';                          /* Crea un pseudo-elemento vacío */
+  position: absolute;                   /* Posiciona la línea respecto al enlace */
+  width: 100%;                          /* Ocupa el ancho completo del enlace */
+  transform: scaleX(0);                 /* Escala inicial de 0 para ocultar la línea */
+  height: 2px;                          /* Grosor de la línea */
+  bottom: 0;                            /* Posiciona la línea en la parte inferior del enlace */
+  left: 0;                              /* Alinea la línea a la izquierda */
+  background-color: white;              /* Color de la línea */
+  transform-origin: bottom center;      /* Punto de origen de la transformación (escalado) */
+  transition: transform 0.25s ease-out; /* Transición suave del efecto de escala */
+}
+
+/* Efecto al hacer hover en el enlace */
+a:hover::after {
+  transform: scaleX(1);                 /* Escala la línea al 100% del ancho del enlace */
+  transform-origin: bottom center;      /* Mantiene el origen de la transformación en el centro inferior */
+}
+.center {
+  flex-grow: 1; /* Permite que "Nuestro Club" ocupe más espacio */
+  text-align: center; /* Alinea el texto en el centro */
+}
+

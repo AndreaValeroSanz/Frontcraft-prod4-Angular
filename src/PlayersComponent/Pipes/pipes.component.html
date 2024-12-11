@@ -1,0 +1,34 @@
+<!-- searchbar.component.html -->
+<form class="search-form" (ngSubmit)="applyFilter()">
+    <div class="search-bar">
+      <input class="search-input" [(ngModel)]="nameFilter" name="name" type="text" placeholder="Buscar por nombre...">
+      <input class="search-input" [(ngModel)]="ageFilter" name="age" type="number" placeholder="Buscar por edad...">
+      <button class="search-btn" type="submit">
+        <i class="fa fa-search"></i>
+      </button>
+    </div>
+</form>
+
+<nav class="categories-nav">
+    <div class="categories-dropdown">
+        <button class="categories-btn" (click)="toggleDropdown()">
+            <i class="fa fa-bars"></i> Categorías
+        </button>
+
+        <!-- Mostrar u ocultar el dropdown según el valor de isDropdownVisible -->
+        <ul *ngIf="isDropdownVisible" class="categories-list">
+            <li><a href="#">Primer Equipo</a></li>
+            <li><a href="#">Segundo Equipo</a></li>
+            <li><a href="#">Juvenil A</a></li>
+            <li><a href="#">Juvenil B</a></li>
+            <li><a href="#">Juvenil C</a></li>
+            <li><a href="#">Cadete A</a></li>
+            <li><a href="#">Cadete B</a></li>
+            <li><a href="#">Cadete C</a></li>
+            <li><a href="#">Infantil A</a></li>
+            <li><a href="#">Infantil B</a></li>
+            <li><a href="#">Infantil C</a></li>
+            <li><a href="#">Alevín</a></li>
+        </ul>
+    </div>
+</nav>

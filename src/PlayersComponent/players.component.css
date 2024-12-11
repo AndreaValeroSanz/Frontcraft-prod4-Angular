@@ -1,0 +1,214 @@
+/* Estilo del buscador */
+.form-control {
+  border-radius: 15px;                  /* Bordes redondeados */
+  border: 1px solid #ccc;               /* Borde ligero */
+  padding: 8px 12px;                    /* Espaciado interno */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: border-color 0.3s ease;   /* Transición en color de borde */
+}
+
+.form-control:focus {
+  border-color:#f39c12;                /* Color de borde al hacer foco */
+  box-shadow: 0 4px 6px rgba(0, 123, 255, 0.3); /* Sombra de foco */
+  outline: none;                        /* Sin contorno */
+}
+
+/* Estilo del botón de filtrar */
+.btn-primary {
+  background-color: #f39c12;            /* Color azul primario */
+  border: none;                         /* Sin borde */
+  color: white;                         /* Texto blanco */
+  padding: 10px 20px;                   /* Espaciado interno */
+  font-size: 16px;                      /* Tamaño de texto */
+  font-weight: 500;                     /* Negrita media */
+  border-radius: 15px;                  /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+.btn-primary:hover {
+  background-color: #f39c12;            /* Color de fondo al pasar el mouse */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra aumentada */
+}
+
+/* Estilo del botón de añadir jugador */
+.open-form {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #28a745;            /* Color verde */
+  color: white;                         /* Color de texto blanco */
+  padding: 12px 20px;                   /* Espaciado interno */
+  font-size: 16px;                      /* Tamaño de fuente */
+  font-weight: 500;                     /* Peso de fuente medio */
+  border: none;                         /* Sin borde */
+  border-radius: 25px;                  /* Bordes redondeados */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+  cursor: pointer;                      /* Cursor de puntero */
+  margin-top: 10px;
+  margin-left: 45%;
+}
+
+.open-form:hover {
+  background-color: #218838;            /* Color verde oscuro */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Sombra aumentada */
+}
+
+
+
+/* Estilo general de la tarjeta */
+.card {
+  width: 150px;                           /* Ancho de la tarjeta */
+  height: 200px;                          /* Alto de la tarjeta */
+  overflow: hidden;                       /* Evita que el contenido se desborde de los bordes de la tarjeta */
+  position: relative;                     /* Permite posicionar los elementos internos */
+  background: #adadad;                    /* Color de fondo de la tarjeta */
+  perspective: 1000px;                    /* Crea un efecto de perspectiva 3D */
+  padding: 5px;                           /* Espaciado interno */
+  margin: 20px;                           /* Espaciado externo */
+  box-shadow: -10px 10px 4px rgba(0, 0, 0, 1), 0 6px 6px rgba(0, 0, 0, 1); /* Sombras */
+  transition: all 0.2s ease;              /* Transición suave para cambios de estado */
+}
+
+
+/* Contenedor interior de la tarjeta con efecto de volteo */
+.card-inner {
+  position: relative;
+  width: 100%;                            /* Ocupa el ancho completo de la tarjeta */
+  height: 100%;                           /* Ocupa la altura completa de la tarjeta */
+  transition: transform 0.6s;             /* Transición para el efecto de volteo */
+  transform-style: preserve-3d;           /* Mantiene el efecto 3D */
+}
+
+/* Volteo de la tarjeta al pasar el mouse */
+.card:hover .card-inner {
+  transform: rotateY(180deg);             /* Rota la tarjeta en el eje Y */
+}
+
+/* Lados frontal y trasero de la tarjeta */
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;            /* Oculta el lado opuesto al voltear */
+  box-sizing: border-box;                 /* Garantiza que el padding no aumente el tamaño */
+}
+
+/* Estilo del lado frontal de la tarjeta */
+.card-front {
+  background: #adadad;
+  display: flex;
+  align-items: center;                    /* Centra el contenido verticalmente */
+  justify-content: center;                /* Centra el contenido horizontalmente */
+  overflow: hidden;
+}
+
+/* Estilo del lado trasero de la tarjeta */
+.card-back {
+  background: linear-gradient(80deg, #edebe7, #656a6b); /* Fondo degradado */
+  color: #333;                        /* Color del texto */
+  display: flex;
+  flex-direction: column;
+  align-items: center;                /* Centra el contenido horizontalmente */
+  justify-content: center;            /* Centra el contenido verticalmente */
+  transform: rotateY(180deg);         /* Invierte el lado trasero para el volteo */
+  padding: 10px;
+  text-align: center;                 /* Centra el texto */
+  font-size: 9px;                     /* Tamaño de fuente */
+  line-height: 0.5%;                  /* Espaciado entre líneas */
+}
+
+/* Tamaño de fuente para los títulos */
+h6 {
+  font-size: 13px;
+}
+
+/* Estilo de la imagen en el lado frontal */
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;                /* Ajusta la imagen dentro del contenedor sin distorsión */
+  filter: grayscale(80%);             /* Aplica un filtro de escala de grises */
+}
+
+/* Estilo cuando la tarjeta se amplía */
+.card.enlarged {
+  width: 30vh;                        /* Ancho ampliado */
+  height: 40vh;                       /* Alto ampliado */
+}
+
+/* Estilo del botón en el lado trasero */
+.card-back .button {
+  background-color: #ffffff;          /* Color de fondo del botón */
+  border: none;                       /* Sin borde */
+  position: absolute;
+  bottom: 1px;                        /* Ubicación en la parte inferior */
+  border-radius: 5px;                 /* Bordes redondeados */
+  color: rgb(0, 0, 0);                /* Color del texto */
+  padding: 4px 6px;                  /* Espaciado interno */
+  text-align: center;                 /* Centra el texto */
+  display: block;
+  font-size: 6px;                     /* Tamaño de fuente */
+  margin: 2px 1px;
+  cursor: pointer;                    /* Muestra el cursor de puntero al pasar el mouse */
+}
+
+.button-group {
+  display: inline-flex;
+  gap: 3px;                           /* Espacio entre los botones*/
+}
+
+
+.open-form{
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-left: 45%;
+}
+
+.form-add{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5)
+}
+
+.form{
+  font-family: Arial, sans-serif;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.form b{
+  font-size: 20px;
+  text-align: center;
+}
+
+.form-button{
+  background-color: green;
+  color: black;
+  padding: 10px 20px;
+  border:none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.form-button-cancel{
+  background-color: red;
+  color: black;
+  padding: 10px 20px;
+  border:none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}

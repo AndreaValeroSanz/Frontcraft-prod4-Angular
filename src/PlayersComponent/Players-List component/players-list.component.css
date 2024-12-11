@@ -1,0 +1,41 @@
+.btn-outline-danger {
+    color: #ff4d4f; /* Color de texto rojo */
+    border-color: #ff4d4f; /* Color del borde */
+    font-weight: bold;
+    padding: 8px 16px;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+  }
+  
+  /* Hover: cambia el color de fondo y el texto */
+  .btn-outline-danger:hover {
+    background-color: #ff4d4f; /* Fondo rojo al pasar el cursor */
+    color: #ffffff; /* Texto blanco */
+    border-color: #ff4d4f; /* Borde coincide con el fondo */
+    box-shadow: 0px 4px 8px rgba(255, 77, 79, 0.4); /* Sombra sutil */
+  }
+  
+  /* Efecto de clic */
+  .btn-outline-danger:active {
+    background-color: #e43e3d; /* Rojo oscuro al hacer clic */
+    color: #ffffff;
+    border-color: #e43e3d;
+    transform: scale(0.98); /* Ligero efecto de contracción */
+  }
+  
+  /* Enfoque (focus) */
+  .btn-outline-danger:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(255, 77, 79, 0.5); /* Sombra de enfoque */
+  }
+  
+  /* Deshabilitado */
+  .btn-outline-danger:disabled {
+    background-color: #f8d7da; /* Fondo gris claro */
+    color: #e0a1a1; /* Texto gris pálido */
+    border-color: #f5c6cb;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+  

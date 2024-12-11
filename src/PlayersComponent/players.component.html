@@ -1,0 +1,163 @@
+<div class="container mt-5">
+  <!-- Contenedor de filtros de búsqueda -->
+  <div class="row mb-4">
+    <div class="col-md-5">
+      <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Buscar jugador por nombre" 
+        [(ngModel)]="filterTerm"
+      />
+    </div>
+    <div class="col-md-5">
+      <input 
+        type="number" 
+        class="form-control" 
+        placeholder="Buscar jugador por edad" 
+        [(ngModel)]="filterAge"
+      />
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary w-100" (click)="filterPlayers()">Filtrar</button>
+    </div>
+  </div>
+
+<button class="open-form" (click)="openForm()">Añadir Jugador</button>
+
+<div *ngIf="isFormOpen" class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title border-3">Añadir Jugador</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="closeForm()"></button>
+      </div>
+      <form (ngSubmit)="addPlayer()">
+        <div class="modal-body">
+          <!-- Campos de entrada con ngModel -->
+          <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input id="new-name" name="name" [(ngModel)]="player.name" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="ppg" class="form-label">Puntos por partido</label>
+            <input id="new-ppg" name="ppg" [(ngModel)]="player.ppg" required type="number" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="rpg" class="form-label">Rebotes por partido</label>
+            <input id="new-rpg" name="rpg" [(ngModel)]="player.rpg" required type="number" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="apg" class="form-label">Asistencias por partido</label>
+            <input id="new-apg" name="apg" [(ngModel)]="player.apg" required type="number" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="height" class="form-label">Altura</label>
+            <input id="new-height" name="height" [(ngModel)]="player.height" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="weight" class="form-label">Peso</label>
+            <input id="new-weight" name="weight" [(ngModel)]="player.weight" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Edad</label>
+            <input id="new-age" name="age" [(ngModel)]="player.age" required type="number" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="image" class="form-label">Imagen</label>
+            <input id="new-image" name="image" [(ngModel)]="player.image" required class="form-control">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="closeForm()">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Añadir Jugador</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+      <!-- Recorre cada jugador en el array "filteredPlayers" para mostrar solo los jugadores filtrados -->
+  <div *ngFor="let player of filteredPlayers; trackBy: trackByFn" class="col-md-3 mb-4 d-flex align-items-stretch">
+    <div class="card" id="{{player.name}}" #card (click)="toggleCardSize(player.name)">
+      <div class="card-inner">
+        <div class="card-front">
+          <img class="image" [src]="player.image" [alt]="player.name + ' Card'">
+        </div>
+        <div class="card-back">
+          <h5>{{ player.name }}</h5>
+          <p>Puntos por partido: {{ player.ppg }}</p>
+          <p>Rebotes por partido: {{ player.rpg }}</p>
+          <p>Asistencias por partido: {{ player.apg }}</p>
+          <p>Altura: {{ player.height }}</p>
+          <p>Peso: {{ player.weight }}</p>
+          <p>Edad: {{ player.age }}</p>
+          <div class="button-group">
+            <button class="btn btn-outline-danger btn-inline" (click)="onClickDelete(player, $event)">BORRAR</button>
+            <button class="btn btn-primary btn-inline" (click)="editPlayer(player, $event)">EDITAR</button>
+          </div>
+          <button class="btn btn-secondary mt-2" (click)="openModal()" *ngIf="isCardEnlarged">MEJORES JUGADAS</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal de edición de jugador -->
+
+
+<div *ngIf="isEditing" class="modal fade show d-block" tabindex="-1" [ngClass]="{ 'show': isEditing }" style="background-color: rgba(0,0,0,0.5);">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Editar Jugador</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="isEditing = false"></button>
+      </div>
+      <form (submit)="saveChanges()">
+        <div class="modal-body">
+          <!-- Campos de entrada -->
+          <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input id="name" [(ngModel)]="editedPlayer.name" name="name" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="ppg" class="form-label">Puntos por partido</label>
+            <input id="ppg" [(ngModel)]="editedPlayer.ppg" name="ppg" required type="number" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="rpg" class="form-label">Rebotes por partido</label>
+            <input id="rpg" [(ngModel)]="editedPlayer.rpg" name="rpg" required type="number" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="apg" class="form-label">Asistencias por partido</label>
+            <input id="apg" [(ngModel)]="editedPlayer.apg" name="apg" required type="number" class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="height" class="form-label">Altura</label>
+            <input id="height" [(ngModel)]="editedPlayer.height" name="height" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="weight" class="form-label">Peso</label>
+            <input id="weight" [(ngModel)]="editedPlayer.weight" name="weight" required class="form-control">
+          </div>
+          <div class="mb-3">
+            <label for="age" class="form-label">Edad</label>
+            <input id="age" [(ngModel)]="editedPlayer.age" name="age" required type="number" class="form-control">
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" (click)="isEditing = false">Cancelar</button>
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal de pantalla completa que muestra jugadas destacadas del jugador -->
+<app-fullscreen-modal *ngIf="showModal" (buttonClicked)="closeModal()"></app-fullscreen-modal>

@@ -1,0 +1,92 @@
+/* Searchbar */
+.search-form {
+    display: flex; /* Utiliza flexbox para alinear los elementos en una fila */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    margin-top: 20px; /* Margen superior para separar de otros elementos */
+    margin-left: 20px; /* Margen izquierdo para separar del borde */
+  }
+  
+  .search-bar {
+    display: flex; /* Utiliza flexbox para alinear el campo de entrada y el botón */
+    align-items: center; /* Alinea verticalmente los elementos en el centro */
+    background-color: #f0f0f0; /* Color de fondo de la barra de búsqueda */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 5px; /* Espaciado interno */
+    width: 400px; /* Ancho fijo de la barra de búsqueda */
+  }
+  
+  .search-input {
+    border: none; /* Sin borde para un aspecto más limpio */
+    background: none; /* Sin fondo adicional */
+    outline: none; /* Sin contorno al enfocar el campo de entrada */
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 10px; /* Espaciado interno */
+    font-size: 18px; /* Tamaño de fuente del texto en el campo de entrada */
+  }
+  
+  .search-btn {
+    background-color: #f39c12; /* Color de fondo del botón de búsqueda */
+    border: none; /* Sin borde para un diseño limpio */
+    color: white; /* Color del texto en el botón */
+    padding: 10px; /* Espaciado interno */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    border-radius: 15px; /* Bordes redondeados para el botón */
+    transition: background-color 0.3s ease; /* Suaviza la transición del color de fondo */
+  }
+  
+  .search-btn:hover {
+    background-color: #f39c12; /* Cambia el color de fondo al pasar el mouse (sin cambio visual, ya que es el mismo color) */
+  }
+  
+  .search-btn i {
+    font-size: 25px; /* Tamaño del icono dentro del botón */
+  }
+  
+  /* Filtro de Categorías */
+  .categories-nav {
+    display: flex; /* Utiliza flexbox para alinear los elementos en una fila */
+    justify-content: center; /* Centra el contenido horizontalmente */
+    margin-top: 10px; /* Margen superior para separar de otros elementos */
+  }
+  
+  .categories-dropdown {
+    position: relative; /* Permite posicionar elementos hijos de manera relativa */
+  }
+  
+  .categories-btn {
+    background-color: #f0f0f0; /* Color de fondo del botón de categorías */
+    border: none; /* Sin borde para un diseño limpio */
+    padding: 10px 20px; /* Espaciado interno */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    border-radius: 25px; /* Bordes redondeados para el botón */
+    display: flex; /* Utiliza flexbox para alinear el icono y el texto */
+    align-items: center; /* Alinea verticalmente los elementos en el centro */
+    transition: background-color 0.3s ease; /* Suaviza la transición del color de fondo */
+  }
+  
+  .categories-btn i {
+    margin-right: 50px; /* Espaciado a la derecha del icono */
+  }
+  
+  .categories-btn:hover {
+    background-color: #e0e0e0; /* Cambia el color de fondo al pasar el mouse */
+  }
+  
+  .categories-list {
+    list-style: none; /* Sin viñetas en la lista */
+    padding: 10px; /* Espaciado interno */
+    margin: 0; /* Sin margen para evitar desalineaciones */
+    background-color: white; /* Color de fondo de la lista de categorías */
+    border: 1px solid #ccc; /* Borde ligero alrededor de la lista */
+    border-radius: 5px; /* Bordes redondeados */
+  }
+  
+  .categories-list li {
+    padding: 10px 15px; /* Espaciado interno para los elementos de la lista */
+    cursor: pointer; /* Cambia el cursor al pasar sobre los elementos de la lista */
+  }
+  
+  .categories-list li:hover {
+    background-color: #f0f0f0; /* Cambia el color de fondo al pasar el mouse sobre los elementos de la lista */
+  }
+  

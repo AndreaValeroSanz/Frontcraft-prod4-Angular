@@ -1,0 +1,60 @@
+/* Estilos para la clase modal */
+.modal {
+  font-family: Arial, sans-serif;       /* Fuente del texto en Arial o sans-serif */
+  background-color: #f4f4f4;            /* Color de fondo gris claro */
+  display: flex;                        /* Usa flexbox para centrar el contenido */
+  justify-content: center;              /* Centra el contenido horizontalmente */
+  height: 100vh;                        /* Altura completa de la ventana para centrar verticalmente */
+}
+
+/* Estilos para la clase container */
+.container {
+  text-align: center;                   /* Centra el texto en el contenedor */
+  background-color: white;              /* Fondo blanco para el contenedor */
+  padding: 20px;                        /* Espacio alrededor del contenido */
+  border-radius: 10px;                  /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave debajo del contenedor */
+}
+
+/* Estilos para los elementos h1 */
+h1 {
+  margin-bottom: 20px;                  /* Espacio debajo del encabezado */
+  color: #333;                          /* Color de texto gris oscuro */
+}
+
+/* Estilos para la clase video-container */
+.video-container {
+  position: relative;                   /* Posición relativa para posicionar el iframe */
+  padding-bottom: 45%;                  /* Proporción de aspecto de video (16:9 aproximadamente) */
+  height: 0;                            /* Altura inicial 0, ajustada con el padding */
+  overflow: hidden;                     /* Oculta cualquier contenido que se desborde */
+  max-width: 100%;                      /* Ancho máximo del 100% del contenedor padre */
+  background-color: #000;               /* Fondo negro para el área de video */
+  border-radius: 20px;                  /* Bordes redondeados para el contenedor de video */
+}
+
+/* Estilos específicos para el iframe dentro de .video-container */
+.video-container video {
+  position: absolute;                   /* Posiciona el iframe para ocupar todo el contenedor */
+  top: 0;
+  left: 0;
+  width: 100%;                          /* Ancho completo del contenedor */
+  height: 100%;                         /* Altura completa del contenedor */
+}
+
+/* Estilos para la clase button */
+.button {
+  float: right;                         /* Alinea el botón a la derecha */
+  padding: 10px 20px;                   /* Espaciado interno para el botón */
+  font-size: 18px;                      /* Tamaño de fuente del botón */
+  cursor: pointer;                      /* Cambia el cursor al pasar sobre el botón */
+  background-color: #6c81f8;            /* Color de fondo azul del botón */
+  color: rgb(255, 255, 255);            /* Color de texto blanco */
+  border: none;                         /* Sin borde */
+  border-radius: 5px;                   /* Bordes redondeados */
+}
+
+/* Estilos para el botón en estado hover */
+button:hover {
+  background-color: #004691;            /* Cambia el fondo del botón a un azul más oscuro al pasar el ratón */
+}
